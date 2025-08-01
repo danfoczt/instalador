@@ -79,6 +79,9 @@ USER_LIMIT=${max_user}
 CONNECTIONS_LIMIT=${max_whats}
 CLOSED_SEND_BY_ME=true
 
+RECAPTCHA_SECRET_KEY=6LeDYTErAAAAAFRnTEW3_OOLwUec191Gohqm7akd
+APP_HOSTNAME=app.zapxpress.com.br
+
 [-]EOF
 EOF
 
@@ -99,7 +102,8 @@ backend_node_dependencies() {
 
   sudo su - deploy <<EOF
   cd /home/deploy/${instancia_add}/backend
-  npm install --force
+  npm install
+  npm install @whiskeysockets/baileys@6.7.16
 EOF
 
   sleep 2
@@ -212,7 +216,8 @@ backend_start_pm2() {
 
   sudo su - deploy <<EOF
   cd /home/deploy/${instancia_add}/backend
-  pm2 start dist/server.js --name ${instancia_add}-backend
+  pm2 start dist/server.js --node-args="--max-old-space-size=8192" --name ${instancia_add}-backend
+  sudo pm2 save
 EOF
 
   sleep 2

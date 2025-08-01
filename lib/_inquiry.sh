@@ -11,7 +11,7 @@ get_mysql_root_password() {
 get_link_git() {
   
   print_banner
-  printf "${WHITE} 💻 Insira o link do GITHUB do Atendechat que deseja instalar:${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Insira o link do GITHUB do ZAPXPRESS que deseja instalar:${GRAY_LIGHT}"
   printf "\n\n"
   read -p "> " link_git
 }
@@ -201,14 +201,16 @@ software_dominio() {
 inquiry_options() {
   
   print_banner
-  printf "${WHITE} 💻 Bem vindo(a) ao Gerenciador Atendechat, Selecione abaixo a proxima ação!${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Seja bem-vindo(a) ao Gerenciador de instalação do ZAPXPRESS.${GRAY_LIGHT}"
   printf "\n\n"
-  printf "   [0] Instalar Atendechat\n"
-  printf "   [1] Atualizar Atendechat\n"
-  printf "   [2] Deletar Atendechat\n"
-  printf "   [3] Bloquear Atendechat\n"
-  printf "   [4] Desbloquear Atendechat\n"
-  printf "   [5] Alter. dominio Atendechat\n"
+  printf "\tO que deseja fazer?"
+  printf "\n\n"
+  printf "\t[0] Instalar o sistema\n"
+  printf "\t[1] Atualizar o sistema\n"
+  printf "\t[2] Deletar o sistema\n"
+  printf "\t[3] Bloquear o sistema\n"
+  printf "\t[4] Desbloquear o sistema\n"
+  printf "\t[5] Alterar o dominio do sistema\n"
   printf "\n"
   read -p "> " option
 

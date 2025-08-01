@@ -3,6 +3,7 @@
 # reset shell colors
 tput init
 
+# https://stackoverflow.com/questions/59895/how-to-get-the-source-directory-of-a-bash-script-from-within-the-script-itself
 SOURCE="${BASH_SOURCE[0]}"
 while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
   PROJECT_ROOT="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
@@ -35,6 +36,19 @@ source "${PROJECT_ROOT}"/config
 # interactive CLI
 inquiry_options
 
+# dependencies related
+#system_update
+#system_node_install
+#system_pm2_install
+#system_docker_install
+#system_puppeteer_dependencies
+#system_snapd_install
+#system_nginx_install
+#system_certbot_install
+
+# system config
+#system_create_user
+
 # backend related
 system_git_clone
 backend_set_env
@@ -54,5 +68,6 @@ frontend_start_pm2
 frontend_nginx_setup
 
 # network related
+#system_nginx_conf
 system_nginx_restart
 system_certbot_setup

@@ -29,7 +29,7 @@ EOF
 #######################################
 system_git_clone() {
   print_banner
-  printf "${WHITE} 💻 Fazendo download do código ZAPXPRESS...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Fazendo download do código Atendechat...${GRAY_LIGHT}"
   printf "\n\n"
 
 
@@ -49,14 +49,14 @@ EOF
 #######################################
 system_update() {
   print_banner
-  printf "${WHITE} 💻 Vamos atualizar o sistema ZAPXPRESS...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos atualizar o sistema do Atendechat...${GRAY_LIGHT}"
   printf "\n\n"
 
   sleep 2
 
   sudo su - root <<EOF
   apt -y update
-  sudo apt-get install -y ffmpeg libxshmfence-dev libgbm-dev wget unzip fontconfig locales gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils
+  sudo apt-get install -y libxshmfence-dev libgbm-dev wget unzip fontconfig locales gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils
 EOF
 
   sleep 2
@@ -71,7 +71,7 @@ EOF
 #######################################
 deletar_tudo() {
   print_banner
-  printf "${WHITE} 💻 Vamos deletar o ZAPXPRESS...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos deletar o Atendechat...${GRAY_LIGHT}"
   printf "\n\n"
 
   sleep 2
@@ -117,7 +117,7 @@ EOF
 #######################################
 configurar_bloqueio() {
   print_banner
-  printf "${WHITE} 💻 Vamos bloquear o ZAPXPRESS...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos bloquear o Atendechat...${GRAY_LIGHT}"
   printf "\n\n"
 
   sleep 2
@@ -144,7 +144,7 @@ EOF
 #######################################
 configurar_desbloqueio() {
   print_banner
-  printf "${WHITE} 💻 Vamos Desbloquear o ZAPXPRESS...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos Desbloquear o Atendechat...${GRAY_LIGHT}"
   printf "\n\n"
 
   sleep 2
@@ -170,7 +170,7 @@ EOF
 #######################################
 configurar_dominio() {
   print_banner
-  printf "${WHITE} 💻 Vamos Alterar os Dominios do ZAPXPRESS...${GRAY_LIGHT}"
+  printf "${WHITE} 💻 Vamos Alterar os Dominios do Atendechat...${GRAY_LIGHT}"
   printf "\n\n"
 
 sleep 2
@@ -282,16 +282,9 @@ system_node_install() {
 
   sudo su - root <<EOF
   curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-  apt install -y nodejs
-  npm install image-size
-  npm install --save-dev @types/image-size
-  npm install fluent-ffmpeg
-  npm install react-highlight-words
-  npm install --save-dev update-browserslist-db
-  npm install -g npm@11.3.0
-  npm install react-google-recaptcha
-  npm install react-helmet
-  
+  apt-get install -y nodejs
+  sleep 2
+  npm install -g npm@latest
   sleep 2
   sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
   wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -316,7 +309,7 @@ system_docker_install() {
   sleep 2
 
   sudo su - root <<EOF
-  apt install -y ffmpeg apt-transport-https \
+  apt install -y apt-transport-https \
                  ca-certificates curl \
                  software-properties-common
 
@@ -324,7 +317,7 @@ system_docker_install() {
   
   add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 
-  apt install docker-ce docker-compose python2-minimal -y
+  apt install -y docker-ce
 EOF
 
   sleep 2
@@ -349,7 +342,7 @@ system_puppeteer_dependencies() {
   sleep 2
 
   sudo su - root <<EOF
-  apt-get install -y ffmpeg libxshmfence-dev \
+  apt-get install -y libxshmfence-dev \
                       libgbm-dev \
                       wget \
                       unzip \
